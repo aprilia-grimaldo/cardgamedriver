@@ -27,6 +27,7 @@ public class Deck {
         }
     }
 
+    // how do u work
     public void shuffle() {
         ArrayList<Card> tempDeck = new ArrayList<Card>();
         while (deck.size() > 0) {
@@ -42,6 +43,7 @@ public class Deck {
         return picked;
     }
 
+    // pause what
     public Card deal() {
         return deck.remove(0);
     }
