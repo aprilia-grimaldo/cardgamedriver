@@ -3,6 +3,7 @@ package edu.guilford;
 import java.util.Random;
 
 public class Card implements Comparable<Card>{
+    // comment for first commit before fixing
     // enum for the suits
     public enum Suit {
         CLUBS, DIAMONDS, HEARTS, SPADES
