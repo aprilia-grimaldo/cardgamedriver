@@ -5,6 +5,13 @@ import java.util.ArrayList;
 public class Hand {
     private ArrayList<Card> hand;
 
+    // create a discard pile and stockpile
+    // private ArrayList<Card> discardPile;
+    // private ArrayList<Card> stockPile;
+    // constructor
+    
+
+
     
 
     public Hand() {
