@@ -11,9 +11,6 @@ public class Hand {
     // constructor
     
 
-
-    
-
     public Hand() {
         hand = new ArrayList<Card>();
     }

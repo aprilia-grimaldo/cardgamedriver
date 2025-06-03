@@ -1,6 +1,6 @@
 package edu.guilford;
 
-public class player extends Hand{
+public class player <ArrayList> extends Hand {
 
     // attributes
     // hand and number of lives for the player
@@ -18,9 +18,11 @@ public class player extends Hand{
     public void setHand(Hand hand) {
         this.hand = hand;
     }
+
     public int getLives() {
         return lives;
     }
+
     public void setLives(int lives) {
         this.lives = lives;
     }
@@ -42,7 +44,5 @@ public class player extends Hand{
     public String toString() {
         return "Player [hand=" + hand + ", lives=" + lives + "]";
     }
-
-
 
 }
