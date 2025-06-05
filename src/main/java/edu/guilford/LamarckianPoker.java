@@ -7,7 +7,9 @@ public class LamarckianPoker {
     private Hand player1Hand;
     private Hand player2Hand;
     private Hand pool;
-    private Deck discard;
+    // *Review: changed the type of discard from Deck to Hand
+    // private Deck discard;
+    private Hand discard;
     private Deck deck;
     private Random rand = new Random();
     private int iTurn;
@@ -31,8 +33,11 @@ public class LamarckianPoker {
     public void reset(boolean newDeck) {
         if (newDeck) {
             deck = new Deck();
-            discard = new Deck();
-            discard.clear();
+            // *Review: original line:
+            // discard = new Deck();
+            // modified line:
+            discard = new Hand();
+            discard.reset();
             deck.shuffle();
         }
         iTurn = 0;
@@ -55,8 +60,16 @@ public class LamarckianPoker {
         // System.out.println("Deck size: " + deck.size());
     }
 
+    // *Review: this method turn() should be a loop that continues until one player
+    // has no cards left
+    // Original turn() method
     public boolean turn() {
-        if (player1Hand.size() < 7 || player2Hand.size() < 7) {
+        // this is the original line:
+        // if (player1Hand.size() < 7 || player2Hand.size() < 7) {
+
+        // this is the modified line:
+        // this checks if both players have less than 7 cards; changed the || to &&
+        if (player1Hand.size() < 7 && player2Hand.size() < 7) {
             makePool();
             // System.out.println("Turn " + iTurn + "\n" + pool);
             Card player1Card = player1Hand.getCard(rand.nextInt(player1Hand.size()));
@@ -117,19 +130,39 @@ public class LamarckianPoker {
             pool.addCard(secondCard);
             secondHand.removeCard(secondCard);
             for (Card poolCard : pool.getHand()) {
-                discard.getDeck().add(poolCard);
+                // *Review: this line was commented out in the original code
+                // discard.getDeck().add(poolCard);
+                // modified line:
+                discard.addCard(poolCard); // add the card to the discard pile
             }
             pool.getHand().clear();
             // System.out.println("Discard\n" + discard.size());
+
+            // *Review: these are the original lines:
+            // if (deck.size() < 4) {
+            // for (Card card : discard.getDeck()) {
+            // deck.getDeck().add(card);
+            // }
+            // discard.clear();
+            // // System.out.println("Discard\n" + discard.size());
+            // }
+
+            // this is the modified block:
             if (deck.size() < 4) {
-                for (Card card : discard.getDeck()) {
-                    deck.getDeck().add(card);
+                // deck.getDeck().addAll(discard.getDeck()); // add all the cards from the
+                // discard pile
+                // instead of using a loop to add each cards individually
+                // discard.clear(); // empties the discard pile
+
+                // *Review: changed the line to use the discard's hand instead of deck
+                // this is the modified line with the addAll method:
+                if (deck.size() < 4) {
+                    deck.getDeck().addAll(discard.getHand());
+                    discard.reset();
                 }
-                discard.clear();
-                // System.out.println("Discard\n" + discard.size());
             }
             iTurn++;
-            
+
             return true;
         } else {
             return false;

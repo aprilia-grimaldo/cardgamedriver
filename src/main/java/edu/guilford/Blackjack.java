@@ -9,7 +9,6 @@ public class Blackjack {
         reset(true);
     }
 
-    
 
     public Hand getPlayerHand() {
         return playerHand;
@@ -32,6 +31,13 @@ public class Blackjack {
             deck.shuffle();
         }
     }
+
+    // Overloaded reset method with no parameters
+    // can call reset() with no arguments to always reset the deck
+    // public void reset() {
+    //     reset(true);
+    // }
+
 
     public void deal() {
         playerHand = new Hand();

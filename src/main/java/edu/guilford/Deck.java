@@ -30,7 +30,7 @@ public class Deck {
     // how do u work
     public void shuffle() {
         ArrayList<Card> tempDeck = new ArrayList<Card>();
-        while (deck.size() > 0) {
+        while (deck.size() > 0) { // operates on any deck size greater than 0 check
             int loc = rand.nextInt(deck.size());
             tempDeck.add(deck.get(loc));
             deck.remove(loc);

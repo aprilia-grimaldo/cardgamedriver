@@ -10,11 +10,12 @@ public class Hand {
     // private ArrayList<Card> stockPile;
     // constructor
     
-
+    // hand is a list of card objects
     public Hand() {
         hand = new ArrayList<Card>();
     }
-
+   
+    
     public void addCard(Card card) {
         hand.add(card);
     }
@@ -36,6 +37,10 @@ public class Hand {
     }
 
     // Calculate the value of the hand
+    // ACES can be worth 1 or 11, depending on the total value of the hand
+    // face cards (JACK, QUEEN, KING) are worth 10
+    // all other cards are worth their rank value (2-10) check
+
     public int getTotalValue() {
         int value = 0;
         int aces = 0;
