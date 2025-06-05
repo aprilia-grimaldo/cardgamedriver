@@ -47,6 +47,12 @@ public class LamarckianPoker {
         player1Hand = new Hand();
         player2Hand = new Hand();
         for (int iCard = 0; iCard < 4; iCard++) {
+            // *Review: modified version adds line to check if deck and discard are empty
+            // before dealing cards to players
+            if (deck.size() == 0 && discard.size() == 0) {
+                // No more cards available, handle appropriately (break, throw, etc.)
+                break;
+            }
             player1Hand.addCard(deck.deal());
             player2Hand.addCard(deck.deal());
         }
@@ -55,9 +61,14 @@ public class LamarckianPoker {
     public void makePool() {
         pool = new Hand();
         for (int iCard = 0; iCard < 4; iCard++) {
+            // *Review: modified version adds line to check if deck and discard are empty
+            if (deck.size() == 0 && discard.size() == 0) {
+                // No more cards available, handle appropriately
+                break;
+            }
             pool.addCard(deck.deal());
         }
-        // System.out.println("Deck size: " + deck.size());
+        System.out.println("Deck size: " + deck.size());
     }
 
     // *Review: this method turn() should be a loop that continues until one player
@@ -71,7 +82,13 @@ public class LamarckianPoker {
         // this checks if both players have less than 7 cards; changed the || to &&
         if (player1Hand.size() < 7 && player2Hand.size() < 7) {
             makePool();
-            // System.out.println("Turn " + iTurn + "\n" + pool);
+            System.out.println("Turn " + iTurn + "\n" + pool);
+
+            // modified block to check if either player's hand is empty first:
+            if (player1Hand.size() == 0 || player2Hand.size() == 0) {
+                // one or both hands are empty, end the game
+                return false;
+            }
             Card player1Card = player1Hand.getCard(rand.nextInt(player1Hand.size()));
             Card player2Card = player2Hand.getCard(rand.nextInt(player2Hand.size()));
             Hand firstHand, secondHand;

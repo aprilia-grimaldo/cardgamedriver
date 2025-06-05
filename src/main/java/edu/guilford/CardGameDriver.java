@@ -2,6 +2,13 @@ package edu.guilford;
 
 public class CardGameDriver {
     public static void main(String[] args) {
+        System.out.println();
+        System.out.println("==============================");
+        System.out.println("------ Card Game Driver ------");
+        System.out.println("==============================");
+        System.out.println("------ Blackjack Game: ------");
+        System.out.println("-----------------------------");
+        
         final int NGAMES = 10000;
         int dealerWins = 0;
         int playerWins = 0;
@@ -38,6 +45,10 @@ public class CardGameDriver {
         System.out.println("Player wins: " + playerWins);
         System.out.println("Pushes: " + (NGAMES - dealerWins - playerWins));
 
+        System.out.println("==============================");
+        System.out.println("Lamarckian Poker Game:");
+        System.out.println("-----------------------------");
+        System.out.println();
         LamarckianPoker lmpGame = new LamarckianPoker();
         lmpGame.deal();
         System.out.println("\nInitial Lamarckian hands\n" + lmpGame);
@@ -50,21 +61,9 @@ public class CardGameDriver {
 
         System.out.println("Final Lamarckian hands\n" + lmpGame);   
 
+        System.out.println("==============================");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // *Review: commented out the original Blackjack game loop
         // System.out.println(game);
         // int iGame = 0;
         // while (iGame < NGAMES) {
@@ -106,7 +105,7 @@ public class CardGameDriver {
         //     gameDone = !lmpGame.turn();
         // }
   
-        System.out.println("First game:\n");
+        //System.out.println("First game:\n");
         
         
 
