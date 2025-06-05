@@ -33,7 +33,10 @@ Error from terminal (ran several times to get the error):
         at edu.guilford.CardGameDriver.main(CardGameDriver.java:50)"
 
 ### Addressing the illegalargument error:
-player1Hand.getCard(rand.nextInt(player1Hand.size())) throws the exception or an IndexOutofBoundsExeception if the player1Hand.size() is 0.
-Or if we deal from an empty Deck ()?, thru deck.deal() and the deck happens to be empty, then this will thrwo teh exception.
-To fix, changed the method so the player Hand size and the Deck size will be checked to see if they are empty before executing. 
+player1Hand.getCard(rand.nextInt(player1Hand.size())) throws the exception.
 
+### Challenge??
+not sure if this is what was specified in the Canvas challenge for the IndexOutofBoundsExeception:
+If the player1Hand.size() is 0, or if we deal from an empty Deck (), thru deck.deal() and the deck happens to be empty, then this will thrwo the exception.
+To fix, changed the method so the player Hand size and the Deck size will be checked to see if they are empty before executing. 
+This could've also been addressed with the throw and catch excpetions portion of the class but this was a simplier fix, as I was unsure if we had reache dthat part of the class yet and I ran into trouble trying to implement it. Either way, the program will no longer run into either of the execeptions.

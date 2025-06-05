@@ -65,7 +65,7 @@ public class Blackjack {
 
     // Override toString
     public String toString() {
-        String result = "Player's Hand:\n";
+        String result = "Player's Hand: \n";
         for (int i = 0; i < playerHand.size(); i++) {
             result += playerHand.getCard(i) + "\n";
         }

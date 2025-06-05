@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class ThirtyOneGame {
 
+    // void this class for the codereview: initial assignment portion
+
     // create a game with the following rules;
     // a collection of players, the deck, the discard pile and stockpile, and
     // probably a random number generator.

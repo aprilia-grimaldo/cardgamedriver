@@ -15,7 +15,6 @@ public class Hand {
         hand = new ArrayList<Card>();
     }
    
-    
     public void addCard(Card card) {
         hand.add(card);
     }
